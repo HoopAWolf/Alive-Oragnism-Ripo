@@ -155,6 +155,7 @@ void Level::GenerateLevel()
 	}
 
 	level_set = temp_array;
+	temp_array = nullptr;
 
 	int i = 0;
 	for (int y = 0; y < GetSizeOfLevel(); ++y)
