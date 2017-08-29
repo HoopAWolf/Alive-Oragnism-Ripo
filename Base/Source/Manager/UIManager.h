@@ -42,7 +42,35 @@ public:
 	double m_explosionTime = 0;
 private:
 	UIManager() {};
-	virtual ~UIManager() {};
+	virtual ~UIManager() 
+	{
+		if (explosion)
+		{
+			delete explosion;
+			explosion = nullptr;
+		}
+
+		if (m_cursor)
+		{
+			delete m_cursor;
+			m_cursor = nullptr;
+		}
+
+		if (m_selecter)
+		{
+			delete m_selecter;
+			m_selecter = nullptr;
+		}
+
+		for (auto it : m_UIElements)
+		{
+			if (it)
+			{
+				delete it;
+				it = nullptr;
+			}
+		}
+	};
 
 	//Vector to store all UIElements
 	std::vector<EntityBase*> m_UIElements;
