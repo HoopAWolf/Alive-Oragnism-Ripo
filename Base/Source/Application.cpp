@@ -289,6 +289,8 @@ void Application::InitAllMeshes()
 		//UI
 		MeshBuilder::GetInstance()->GenerateQuad("main_menu", 1, 1.f);
 		MeshList::GetInstance()->GetMesh("main_menu")->textureID = LoadTGA("Image//menu.tga");
+		MeshBuilder::GetInstance()->GenerateQuad("loading_screen", 1, 1.f);
+		MeshList::GetInstance()->GetMesh("loading_screen")->textureID = LoadTGA("Image//loading_screen.tga");
 		MeshBuilder::GetInstance()->GenerateQuad("gameover_screen", 1, 1.f);
 		MeshList::GetInstance()->GetMesh("gameover_screen")->textureID = LoadTGA("Image//gameover_screen.tga");
 		MeshBuilder::GetInstance()->GenerateQuad("instruction_menu", 1, 1.f);
