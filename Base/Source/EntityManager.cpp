@@ -311,21 +311,21 @@ void EntityManager::ResetEntityBase()
 	{
 		if (it->first == -1)
 			continue;
-		std::list<EntityBase*> local_list(it->second.begin(), it->second.end());
+		//std::list<EntityBase*> local_list(it->second.begin(), it->second.end());
 		it->second.clear();
 
-		for (std::list<EntityBase*>::iterator it2 = local_list.begin(); it2 != local_list.end(); ++it2)
-		{
-			EntityBase* e = *it2;
-				//	std::cout<<"B:" << e << std::endl;
-			if (e != nullptr)
-			{
-				delete e;
-				e = nullptr;
-				//std::cout << "A:" << e << std::endl;
-			}
-		}
-		local_list.clear();
+		//for (std::list<EntityBase*>::iterator it2 = local_list.begin(); it2 != local_list.end(); ++it2)
+		//{
+		//	EntityBase* e = *it2;
+		//		//	std::cout<<"B:" << e << std::endl;
+		//	if (e != nullptr)
+		//	{
+		//		delete e;
+		//		e = nullptr;
+		//		//std::cout << "A:" << e << std::endl;
+		//	}
+		//}
+		//local_list.clear();
 	}
 	std::map<int, std::list<EntityBase*>>::iterator it = ++m_entity_map_base.begin();
 	m_entity_map_base.erase(it, m_entity_map_base.end());
@@ -335,25 +335,25 @@ void EntityManager::ResetEntityBase()
 			continue;
 
 
-		std::list<EntityBase*> local_list(it->second.begin(), it->second.end());
+		//std::list<EntityBase*> local_list(it->second.begin(), it->second.end());
 		it->second.clear();
 
-		for (std::list<EntityBase*>::iterator it2 = local_list.begin(); it2 != local_list.end(); ++it2)
-		{
-			EntityBase* e = *it2;
-			//std::cout << "B:" << e << std::endl;
-			if (e != nullptr)
-			{
-				delete e;
-				e = nullptr;
-			//	std::cout << "A:" << e << std::endl;
+		//for (std::list<EntityBase*>::iterator it2 = local_list.begin(); it2 != local_list.end(); ++it2)
+		//{
+		//	EntityBase* e = *it2;
+		//	//std::cout << "B:" << e << std::endl;
+		//	if (e != nullptr)
+		//	{
+		//		delete e;
+		//		e = nullptr;
+		//	//	std::cout << "A:" << e << std::endl;
 
-			}
-		}
-		local_list.clear();
+		//	}
+		//}
+		//local_list.clear();
 	}
-	it = ++m_entity_boss_map_base.begin();
-	m_entity_boss_map_base.erase(it, m_entity_boss_map_base.end());
+	//it = ++m_entity_boss_map_base.begin();
+	//m_entity_boss_map_base.erase(it, m_entity_boss_map_base.end());
 	this->entity_list_full.clear();
 	CMinimap::GetInstance()->entities.clear();
 }
