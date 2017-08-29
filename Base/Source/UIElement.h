@@ -34,15 +34,17 @@ enum UI_TYPE
 
 	UI_GO_RESTART,
 
+	UI_LOAD,
+
 	UI_TOTAL
 };
 
 class UIElement : public GenericEntity
 {
 public:
-	UIElement(Mesh* mesh, 
+	UIElement(Mesh* mesh,
 		GAMESTATE state,
-		UI_TYPE type, 
+		UI_TYPE type,
 		float _sizeX,
 		float _sizeY,
 		float _posX,

@@ -25,11 +25,11 @@ void UIElement::Update(double _dt)
 {
 	if (this->m_type == UI_OM_VOL_DISPLAY)
 	{
-		this->position = Vector3(Application::GetInstance().GetWindowWidth() * posX, 
-			Application::GetInstance().GetWindowHeight() * posY, 
+		this->position = Vector3(Application::GetInstance().GetWindowWidth() * posX,
+			Application::GetInstance().GetWindowHeight() * posY,
 			z_pos);
 		this->scale = Vector3(Application::GetInstance().GetWindowWidth() * sizeX * ((float)AudioPlayer::GetInstance()->getCurrentVolume() / 10),
-			Application::GetInstance().GetWindowHeight() * sizeY, 
+			Application::GetInstance().GetWindowHeight() * sizeY,
 			z_pos);
 		this->size = scale;
 		this->GenerateAABB(this->position);
@@ -189,13 +189,13 @@ UIElement * Create::UI(const std::string& _meshName,
 	UIElement* result = new UIElement(modelMesh, _state, _type, _sizeX, _sizeY, _posX, _posY, z_val);
 	result->SetPosition(Vector3(0, 0, 0));
 	result->SetScale(Vector3(10, 10, 10));
-	
-	if(!(_type == UI_BACKGROUND || _type == UI_CURSOR))
+
+	if (!(_type == UI_BACKGROUND || _type == UI_CURSOR))
 		result->SetCollider(true);
 	else
 		result->SetCollider(false);
 
-	if(addToManager)
+	if (addToManager)
 		UIManager::GetInstance()->addElement(result);
 	return result;
 }

@@ -20,7 +20,7 @@ void UIManager::Init()
 		this->explosion = new SpriteEntity(sa);
 	}
 
-	
+
 	//Initialise UIElements
 	m_cursor = Create::UI("cursor", UI_CURSOR, GAMESTATE::GS_MAINMENU, 1, 1, 1, 1, 2, false);
 	m_selecter = Create::UI("selecter", UI_CURSOR, GAMESTATE::GS_MAINMENU, 1, 1, 1, 1, 2, false);
@@ -52,7 +52,7 @@ void UIManager::Init()
 	//Gamover
 	Create::UI("gameover_screen", UI_BACKGROUND, GAMESTATE::GS_GAMEOVER, 1, 1, 0, 0, 0);
 	Create::UI("restart_button", UI_GO_RESTART, GAMESTATE::GS_GAMEOVER, 0.25, 0.1, 0, -0.33, 1);
-	
+
 	//Level complete screen
 	Create::UI("castle", UI_BACKGROUND, GAMESTATE::GS_LEVELCOMPLETE, 1, 1, 0, 0, 0);
 }
@@ -64,7 +64,7 @@ void UIManager::Update(double _dt)
 
 	if (m_gameState == GS_LEVELCOMPLETE)
 	{
-		this->explosion->SetPosition(Vector3(Math::RandFloatMinMax(-0.3, 0.3) * Application::GetInstance().GetWindowWidth(), 
+		this->explosion->SetPosition(Vector3(Math::RandFloatMinMax(-0.3, 0.3) * Application::GetInstance().GetWindowWidth(),
 			Math::RandFloatMinMax(-0.3, 0.3) * Application::GetInstance().GetWindowHeight(),
 			10));
 		this->explosion->SetScale(Vector3(200, 200, 200));
@@ -84,7 +84,7 @@ void UIManager::Update(double _dt)
 	float posY = (halfWindowHeight - static_cast<float>(y));
 
 	this->m_cursor->SetPosition(Vector3(posX, posY, m_cursor->z_pos));
-	
+
 	//std::cout << "Window Size: " << halfWindowWidth * 2 << ", " << halfWindowHeight * 2 << std::endl;
 	//std::cout << "Cursor Pos: " << m_cursor->GetPosition() << std::endl;
 
@@ -100,7 +100,7 @@ void UIManager::Update(double _dt)
 	if (GetElementOnCursor() != nullptr)
 	{
 		if (dynamic_cast<UIElement*>(GetElementOnCursor())->getState() == m_gameState &&
-			dynamic_cast<UIElement*>(GetElementOnCursor())->m_type != UI_CURSOR && 
+			dynamic_cast<UIElement*>(GetElementOnCursor())->m_type != UI_CURSOR &&
 			dynamic_cast<UIElement*>(GetElementOnCursor())->m_type != UI_OM_VOL_DISPLAY)
 		{
 			m_selecter->posX = GetElementOnCursor()->posX;
@@ -134,14 +134,14 @@ void UIManager::RenderUI()
 {
 	for (auto &it : m_UIElements)
 	{
-		if(dynamic_cast<UIElement*>(it)->getState() == m_gameState)
+		if (dynamic_cast<UIElement*>(it)->getState() == m_gameState)
 			it->Render();
 	}
 
-	
+
 	m_cursor->Render();
 	m_selecter->Render();
-	if(m_gameState == GS_LEVELCOMPLETE)
+	if (m_gameState == GS_LEVELCOMPLETE)
 		explosion->Render();
 }
 
